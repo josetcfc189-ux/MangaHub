@@ -38,6 +38,7 @@ public class LoginController {
 		if (usuario != null) {
 
 			session.setAttribute("usuario", usuario.getNombres());
+            session.setAttribute("idUsuario", usuario.getIdUsuario());
 			session.setAttribute("rol", usuario.getRol());
 
 			redirectAttributes.addFlashAttribute("bienvenida", usuario.getNombres());

@@ -11,6 +11,10 @@ import org.springframework.data.repository.query.Param;
 import com.cibertec.mangahub.model.Manga;
 
 public interface MangaRepository extends JpaRepository<Manga, Integer> {
+    @org.springframework.data.jpa.repository.Lock(jakarta.persistence.LockModeType.PESSIMISTIC_WRITE)
+    @Query("SELECT m FROM Manga m WHERE m.idManga = :id")
+    java.util.Optional<Manga> buscarParaVenta(@Param("id") Integer id);
+
 
 	List<Manga> findAllByOrderByIdMangaDesc();
 

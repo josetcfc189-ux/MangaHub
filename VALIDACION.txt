@@ -1,0 +1,12 @@
+Verificación realizada:
+- Correspondencia de campos y relaciones con el SQL original.
+- Revisión de rutas, sesión y nombres de los atributos Thymeleaf.
+- Incluidos cinco tests unitarios de VentaService: total y duplicados, stock insuficiente, cantidad cero, cliente inactivo y usuario ausente.
+
+Intento: bash mvnw -q -DskipTests compile
+Resultado: bloqueado al resolver el parent org.springframework.boot:spring-boot-starter-parent:4.0.8 del pom.xml original.
+Causa informada: Unknown host repo.maven.apache.org.
+No se pudo confirmar compilación, ejecutar los tests ni probar el flujo con MySQL en este entorno.
+En un equipo con acceso a Maven Central ejecutar ./mvnw -Dtest=VentaServiceTests test (Windows: mvnw.cmd -Dtest=VentaServiceTests test).
+
+Actualización: agregados dos tests de eliminación (devolución de stock y venta inexistente). No ejecutados por el bloqueo de dependencias ya descrito.
